@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>
+            Exercism -
+            <a
+                href="https://exercism.org/tracks/javascript/exercises/two-fer"
+                target="_blank"
+                >Two Fer</a
+            >
+        </h1>
+        <pre><code>const twoFer = (name) => {
+    if (name) {
+        return `One for ${name}, one for me.`;
+    } else {
+        return "One for you, one for me.";
+    }
+};</code></pre>
+        <p>
+            <input type="text" id="input" onclick="this.value=''" />
+            <button id="btn">click</button>
+        </p>
+        <div id="output"></div>
+        <script src="script.js"></script>
+    </body>
+</html>
