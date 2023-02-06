@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Pascal's Triangle</title>
+    </head>
+    <body>
+        <h1>
+            Exercism -
+            <a
+                href="https://exercism.org/tracks/javascript/exercises/pascals-triangle"
+                target="_blank"
+                >Pascal's Triangle
+            </a>
+        </h1>
+        <pre><code>
+function pascalsTriangle(row) {
+    let triangle = [];
+    for (let i = 0; i &lt; row; i++) {
+        triangle[i] = [];
+        for (let j = 0; j &lt;= i; j++) {
+            triangle[i][j] = 0;
+        }
+    }
+    if (row > 0) {
+        triangle[0] = [1];
+    }
+    for (let i = 1; i &lt; row; i++) {
+        for (let j = 0; j &lt;= i; j++) {
+            if (triangle[i - 1][j - 1]) {
+                triangle[i][j] += triangle[i - 1][j - 1];
+            }
+            if (triangle[i - 1][j]) {
+                triangle[i][j] += triangle[i - 1][j];
+            }
+        }
+    }
+    return triangle;
+}
+</code></pre>
+        <p>
+            <input type="text" id="input" onclick="this.value=''" />
+            <button id="btn">click</button>
+        </p>
+        <div id="output"></div>
+        <br />
+        <br />
+        <script src="script.js"></script>
+    </body>
+</html>
