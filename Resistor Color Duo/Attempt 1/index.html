@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>
+            Exercism -
+            <a
+                href="https://exercism.org/tracks/javascript/exercises/resistor-color-duo"
+                target="_blank"
+                >Resistor Color Duo</a
+            >
+        </h1>
+        <pre><code>const decodedValue = (inputColors) => {
+    const colors = [
+        "black",
+        "brown",
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "violet",
+        "grey",
+        "white",
+    ];
+
+    let output = "";
+    for (let inputColor = 0; inputColor &lt; 2; inputColor++) {
+        for (let colorNumber in colors) {
+            if (colors[colorNumber] === inputColors[inputColor]) {
+                output += colorNumber;
+                break;
+            }
+        }
+    }
+    return Number(output);
+};</code></pre>
+        <form id="form">
+            <input
+                type="text"
+                id="input-text"
+                autocomplete="off"
+                placeholder="color-color"
+                required
+                autofocus
+            />
+            <input type="submit" value="Submit" id="input-submit"/>
+        </form>
+        <div id="output"></div>
+        <script src="script.js"></script>
+    </body>
+</html>
