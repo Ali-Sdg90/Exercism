@@ -24,9 +24,7 @@ const decodedValue = (inputColors) => {
     return Number(output);
 };
 
-document.getElementById("form").addEventListener("submit", (event) => {
-    event.preventDefault();
-
+document.getElementById("btn").addEventListener("click", function () {
     document.getElementById("output").textContent = decodedValue(
         document.getElementById("input-text").value.split("-")
     );

@@ -6,10 +6,11 @@ const isLeap = (year) => {
     return isLeap;
 };
 
-const btn = document.getElementById("btn");
 const input = document.getElementById("input");
-btn.addEventListener("click", function () {
-    document.getElementById("output").textContent =
-        "=> " + isLeap(input.value);
-    console.log(isLeap(input.value));
-});
+const btn = document
+    .getElementById("btn")
+    .addEventListener("click", function () {
+        document.getElementById("output").textContent =
+            "=> " + isLeap(input.value);
+        console.log(isLeap(input.value));
+    });

@@ -8,6 +8,9 @@ const isPangram = (sentence) => {
             }
         }
     }
-    if (alphabet == "--------------------------") return true;
-    else return false;
+    if (alphabet == "--------------------------") {
+        return true;
+    } else {
+        return false;
+    }
 };

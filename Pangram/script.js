@@ -8,8 +8,11 @@ const isPangram = (sentence) => {
             }
         }
     }
-    if (alphabet == "--------------------------") return true;
-    else return false;
+    if (alphabet == "--------------------------") {
+        return true;
+    } else {
+        return false;
+    }
 };
 
 /*true:
@@ -27,10 +30,11 @@ const isPangram = (sentence) => {
     the quick brown fox jumps over with lazy FX
 */
 
-const btn = document.getElementById("btn");
 const input = document.getElementById("input");
-btn.addEventListener("click", function () {
-    document.getElementById("output").textContent =
-        "=> " + isPangram(input.value);
-    console.log(isPangram(input.value));
-});
+const btn = document
+    .getElementById("btn")
+    .addEventListener("click", function () {
+        document.getElementById("output").textContent =
+            "=> " + isPangram(input.value);
+        console.log(isPangram(input.value));
+    });

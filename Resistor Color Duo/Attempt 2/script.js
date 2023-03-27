@@ -15,10 +15,7 @@ const decodedValue = (inputColors) => {
     return colors[inputColors[0]] * 10 + colors[inputColors[1]];
 };
 
-
-document.getElementById("form").addEventListener("submit", (event) => {
-    event.preventDefault();
-
+document.getElementById("btn").addEventListener("click", function () {
     document.getElementById("output").textContent = decodedValue(
         document.getElementById("input-text").value.split("-")
     );

@@ -6,9 +6,8 @@ const twoFer = (name) => {
     }
 };
 
-const btn = document.getElementById("btn");
-const input = document.getElementById("input");
-btn.addEventListener("click", function () {
+const input = document.getElementById("input-text");
+document.getElementById("btn").addEventListener("click", function () {
     document.getElementById("output").textContent = "=> " + twoFer(input.value);
     console.log(twoFer(input.value));
 });

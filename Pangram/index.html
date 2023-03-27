@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Document</title>
+        <link rel="stylesheet" href="../Assets/style.css" />
+        <title>Exercism - Pangram</title>
     </head>
     <body>
         <h1>
@@ -26,14 +26,26 @@
             }
         }
     }
-    if (alphabet == "--------------------------") return true;
-    else return false;
+    if (alphabet == "--------------------------") {
+        return true;
+    } else {
+        return false;
+    }
 };</code></pre>
-        <p>
-            <input type="text" id="input" onclick="this.value=''" />
-            <button id="btn">click</button>
-        </p>
+        <form>
+            <input
+                type="text"
+                id="input"
+                onclick="this.value=''"
+                autocomplete="off"
+                required
+                autofocus
+                placeholder="sentence"
+            />
+            <input type="submit" id="btn" />
+        </form>
         <div id="output"></div>
+        <script src="../Assets/script.js"></script>
         <script src="script.js"></script>
     </body>
 </html>

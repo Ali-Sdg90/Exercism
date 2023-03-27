@@ -3,4 +3,3 @@ function hello() {
 }
 
 document.getElementById("output").textContent = "=> " + hello();
-console.log(hello());
