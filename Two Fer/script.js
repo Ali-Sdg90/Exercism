@@ -9,5 +9,4 @@ const twoFer = (name) => {
 const input = document.getElementById("input-text");
 document.getElementById("btn").addEventListener("click", function () {
     document.getElementById("output").textContent = "=> " + twoFer(input.value);
-    console.log(twoFer(input.value));
 });
