@@ -16,7 +16,8 @@
     <thead>
         <tr>
             <th>Exercise</th>
-            <th>Jsfiddle</th>
+            <th>GitHub</th>
+            <th>JSFiddle</th>
         </tr>
     </thead>
     <tbody>
@@ -30,9 +31,16 @@
             </td>
             <td>
                 <a
-                    href="https://jsfiddle.net/Ali_Sdg90/jfg8csmq/15/"
+                    href="https://github.com/Ali-Sdg90/Exercism/tree/main/Hello%20World"
                     target="_new"
-                    >Jsfiddle</a
+                    >GitHub</a
+                >
+            </td>
+            <td>
+                <a
+                    href="https://JSFiddle.net/Ali_Sdg90/jfg8csmq/15/"
+                    target="_new"
+                    >JSFiddle</a
                 >
             </td>
         </tr>
@@ -46,9 +54,16 @@
             </td>
             <td>
                 <a
-                    href="https://jsfiddle.net/Ali_Sdg90/vp7dtr32/4/"
+                    href="https://github.com/Ali-Sdg90/Exercism/tree/main/Two%20Fer"
                     target="_new"
-                    >Jsfiddle</a
+                    >GitHub</a
+                >
+            </td>
+            <td>
+                <a
+                    href="https://JSFiddle.net/Ali_Sdg90/vp7dtr32/4/"
+                    target="_new"
+                    >JSFiddle</a
                 >
             </td>
         </tr>
@@ -62,9 +77,16 @@
             </td>
             <td>
                 <a
-                    href="https://jsfiddle.net/Ali_Sdg90/ebmu15xj/2/"
+                    href="https://github.com/Ali-Sdg90/Exercism/tree/main/Leap"
                     target="_new"
-                    >Jsfiddle</a
+                    >GitHub</a
+                >
+            </td>
+            <td>
+                <a
+                    href="https://JSFiddle.net/Ali_Sdg90/ebmu15xj/2/"
+                    target="_new"
+                    >JSFiddle</a
                 >
             </td>
         </tr>
@@ -77,10 +99,13 @@
                 >
             </td>
             <td>
+                <a href="" target="_new">GitHub</a>
+            </td>
+            <td>
                 <a
-                    href="https://jsfiddle.net/Ali_Sdg90/wu0k37zm/3/"
+                    href="https://JSFiddle.net/Ali_Sdg90/wu0k37zm/3/"
                     target="_new"
-                    >Jsfiddle</a
+                    >JSFiddle</a
                 >
             </td>
         </tr>
@@ -94,9 +119,16 @@
             </td>
             <td>
                 <a
-                    href="https://jsfiddle.net/Ali_Sdg90/xqfcpe36/5/"
+                    href="https://github.com/Ali-Sdg90/Exercism/tree/main/Pangram"
                     target="_new"
-                    >Jsfiddle</a
+                    >GitHub</a
+                >
+            </td>
+            <td>
+                <a
+                    href="https://JSFiddle.net/Ali_Sdg90/xqfcpe36/5/"
+                    target="_new"
+                    >JSFiddle</a
                 >
             </td>
         </tr>
@@ -110,9 +142,16 @@
             </td>
             <td>
                 <a
-                    href="https://jsfiddle.net/Ali_Sdg90/4hv70czn/4/"
+                    href="https://github.com/Ali-Sdg90/Exercism/tree/main/Resistor%20Color%20Duo"
                     target="_new"
-                    >Jsfiddle</a
+                    >GitHub</a
+                >
+            </td>
+            <td>
+                <a
+                    href="https://JSFiddle.net/Ali_Sdg90/4hv70czn/4/"
+                    target="_new"
+                    >JSFiddle</a
                 >
             </td>
         </tr>
