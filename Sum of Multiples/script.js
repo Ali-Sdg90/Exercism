@@ -30,7 +30,7 @@ document.getElementById("btn").addEventListener("click", function () {
     //     JSON.parse(`[${input.value}]`)[0],
     //     JSON.parse(`[${input.value}]`)[1]
     // );
-    
+
     document.getElementById("output").textContent =
         "=> " +
         sum(
