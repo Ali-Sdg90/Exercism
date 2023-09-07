@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../Assets/style.css" />
+        <title>Exercism - Two Fer</title>
+    </head>
+    <body>
+        <h1>
+            Exercism -
+            <a
+                href="https://exercism.org/tracks/javascript/exercises/sum-of-multiples"
+                target="_blank"
+                >Sum of Multiples</a
+            >
+        </h1>
+        <pre><code>const sum = (arr, limit) => {
+    let uniqueNumArray = [];
+    let sumUniqueNumArray = 0;
+
+    for (let i = 0; i &lt; arr.length; i++) {
+        // console.log("=>", arr[i]);
+        if (0 !== arr[i]) {
+            for (let j = 1; arr[i] * j &lt; limit; j++) {
+                let pNumber = arr[i] * j;
+
+                if (!uniqueNumArray.includes(pNumber)) {
+                    uniqueNumArray.push(pNumber);
+                    sumUniqueNumArray += pNumber;
+                    // console.log(pNumber);
+                }
+            }
+        }
+    }
+
+    return sumUniqueNumArray;
+};</code></pre>
+        <form id="form">
+            <input
+                type="text"
+                id="input-text"
+                autocomplete="off"
+                placeholder="[Array], MaxNumber"
+                onclick="this.value=''"
+                autofocus
+                required
+            />
+            <input type="submit" id="btn" />
+        </form>
+        <div id="output"></div>
+        <script src="/Assets/script.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

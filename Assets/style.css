@@ -9,6 +9,7 @@
 h1,
 a {
     font-size: 40px;
+    padding-bottom: 30px;
 }
 body {
     background: rgb(48, 48, 48);
@@ -21,6 +22,8 @@ pre {
     background: rgb(35, 35, 35);
     border-radius: 10px;
     padding: 15px;
+    /* border: 1px solid black; */
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05);
 }
 div {
     display: inline-block;
@@ -31,16 +34,22 @@ input {
     border: 1px solid black;
     border-radius: 3px;
     padding: 5px 10px;
+    margin-top: 40px;
 }
 #btn {
     background: rgb(31, 31, 31);
     padding: 5px 10px;
     border-radius: 5px;
     border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.18s;
 }
 #btn:hover {
     background: rgb(44, 44, 44);
 }
 #btn:active {
     background: rgb(31, 31, 31);
+}
+#output{
+    margin-bottom: 50px;
 }
