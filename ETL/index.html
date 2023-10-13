@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../Assets/style.css" />
+        <title>Exercism - ETL</title>
+    </head>
+    <body>
+        <h1>
+            Exercism -
+            <a
+                href="https://exercism.org/tracks/javascript/exercises/etl"
+                target="_blank"
+                >ETL</a
+            >
+        </h1>
+        <pre><code>const transform = (input) => {
+    const alphabetNumbers = {};
+
+    for (let charCode = 97; charCode &lt= 122; charCode++) {
+        const char = String.fromCharCode(charCode);
+        alphabetNumbers[char] = "";
+    }
+
+    for (let i = 0; i &lt= 10; i++) {
+        if (input[i]) {
+            for (let j = 0; j &lt input[i].length; j++) {
+                alphabetNumbers[input[i][j].toLowerCase()] = i;
+            }
+        }
+    }
+
+    for (let i in alphabetNumbers) {
+        if (alphabetNumbers[i] === "") {
+            delete alphabetNumbers[i];
+        }
+    }
+
+    return alphabetNumbers;
+};</code></pre>
+        <form id="form">
+            <textarea id="input-text" cols="25" rows="8"></textarea>
+            <br />
+            <input
+                type="submit"
+                id="btn"
+                style="display: block; margin: 40px auto 0"
+            />
+        </form>
+        <textarea id="output" cols="25" rows="8" disabled></textarea>
+        <script src="../Assets/script.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
