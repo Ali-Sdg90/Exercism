@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../Assets/style.css" />
+        <title>Exercism - Leap</title>
+    </head>
+    <body>
+        <h1>
+            Exercism -
+            <a
+                href="https://exercism.org/tracks/javascript/exercises/grade-school"
+                target="_blank"
+                >Grade School</a
+            >
+        </h1>
+        <pre><code>class GradeSchool {
+    constructor() {
+        this.students = {};
+    }
+
+    sorter() {
+        const keys = Object.keys(this.students);
+        keys.sort((a, b) => a - b);
+
+        const copyOfStudents = this.students;
+        this.students = {};
+
+        for (let i = 0; i &lt; keys.length; i++) {
+            this.students[keys[i]] = copyOfStudents[keys[i]];
+            this.students[keys[i]].sort();
+        }
+    }
+
+    roster() {
+        const copyOfStudents = {};
+        for (let key in this.students) {
+            copyOfStudents[key] = [...this.students[key]];
+        }
+        return copyOfStudents;
+    }
+
+    add(name, gradeNumber) {
+        for (let key in this.students) {
+            for (let value = 0; value &lt; this.students[key].length; value++) {
+                if (this.students[key][value] === name) {
+                    console.log(this.students[key][value] + " got deleted!");
+                    this.students[key].splice(value, 1);
+                    return;
+                }
+            }
+        }
+
+        if (this.students[gradeNumber]) {
+            this.students[gradeNumber].push(name);
+        } else {
+            this.students[gradeNumber] = [];
+            this.students[gradeNumber].push(name);
+        }
+
+        this.sorter();
+    }
+
+    grade(gradeNumber) {
+        if (!this.students[gradeNumber]) {
+            return [];
+        }
+
+        // Create copy of array and can not add "Oops!"!!!!
+        return [...this.students[gradeNumber]];
+    }
+}</code></pre>
+        <form>
+            <input
+                type="text"
+                id="input"
+                onclick="this.value=''"
+                autocomplete="off"
+                autofocus
+                required
+                placeholder="year number"
+            />
+            <input type="submit" id="btn" />
+        </form>
+        <div id="output"></div>
+        <script src="../Assets/script.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
