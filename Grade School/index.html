@@ -68,23 +68,19 @@
             return [];
         }
 
-        // Create copy of array and can not add "Oops!"!!!!
         return [...this.students[gradeNumber]];
     }
 }</code></pre>
-        <form>
+        <form id="form">
+            <textarea id="input-text" cols="30" rows="10"></textarea>
+            <br />
             <input
-                type="text"
-                id="input"
-                onclick="this.value=''"
-                autocomplete="off"
-                autofocus
-                required
-                placeholder="year number"
+                type="submit"
+                id="btn"
+                style="display: block; margin: 40px auto 0"
             />
-            <input type="submit" id="btn" />
         </form>
-        <div id="output"></div>
+        <textarea id="output" cols="25" rows="8" disabled></textarea>
         <script src="../Assets/script.js"></script>
         <script src="script.js"></script>
     </body>
