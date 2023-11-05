@@ -35,12 +35,10 @@ class GradeSchool {
             }
         }
 
-        if (this.students[gradeNumber]) {
-            this.students[gradeNumber].push(name);
-        } else {
+        if (!this.students[gradeNumber]) {
             this.students[gradeNumber] = [];
-            this.students[gradeNumber].push(name);
         }
+        this.students[gradeNumber].push(name);
 
         this.sorter();
     }
@@ -50,7 +48,7 @@ class GradeSchool {
             return [];
         }
 
-        // Create copy of array and can not add Oops!!!!!
+        // Create copy of array and can not add "Oops!"!!!!
         return [...this.students[gradeNumber]];
     }
 }
