@@ -38,7 +38,6 @@ h1 {
     overflow: hidden;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.44);
     height: max(76vh, 527px);
-    /* background: url("./exercism-logo.png") center/cover no-repeat; */
 }
 
 .table div {
@@ -47,17 +46,14 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 65px; */
-    /* background: rgb(82, 53, 53); */
 }
 
 .table a {
     font-family: sans-serif;
-    /* height: 65px; */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: none;
     cursor: pointer;
     color: white;
@@ -73,10 +69,10 @@ h1 {
 }
 
 .link-svg {
-    width: 20px;
-    height: 20px;
-    /* border: 1px solid blue; */
-    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    cursor: pointer;
     background: url("../Assets/link.svg") center/cover no-repeat;
     filter: invert(93%) sepia(7%) saturate(30%) hue-rotate(323deg)
         brightness(106%) contrast(106%);
