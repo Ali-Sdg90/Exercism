@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../Assets/style.css" />
+        <title>Exercism - Simple Cipher</title>
+    </head>
+    <body>
+        <h1>
+            Exercism -
+            <a
+                href="https://exercism.org/tracks/javascript/exercises/simple-cipher"
+                target="_blank"
+                >Simple Cipher</a
+            >
+        </h1>
+        <pre><code>class Cipher {
+    constructor(key = "") {
+        this.keyValue = key;
+        this.encodeValue = "";
+        this.decodeValue = "";
+    }
+
+    encode(input) {
+        if (!this.keyValue) {
+            this.noKeyGiven(input.length);
+        } else if (this.keyValue.length &lt; input.length) {
+            this.loopGivenKey(input.length);
+        }
+
+        this.encodeValue = "";
+        for (let i = 0; i &lt; input.length; i++) {
+            let charCode =
+                input.charAt(i).charCodeAt(0) +
+                (this.key.charAt(i).charCodeAt(0) - 97);
+
+            if (charCode > 122) {
+                charCode -= 26;
+            }
+
+            this.encodeValue += String.fromCharCode(charCode);
+        }
+
+        return this.encodeValue;
+    }
+
+    decode(input) {
+        if (!this.keyValue) {
+            this.noKeyGiven(input.length);
+        } else if (this.keyValue.length &lt; input.length) {
+            this.loopGivenKey(input.length);
+        }
+
+        this.decodeValue = "";
+        for (let i = 0; i &lt; input.length; i++) {
+            let charCode =
+                input.charAt(i).charCodeAt(0) -
+                (this.key.charAt(i).charCodeAt(0) - 97);
+
+            if (charCode &lt; 97) {
+                charCode += 26;
+            }
+
+            this.decodeValue += String.fromCharCode(charCode);
+        }
+
+        return this.decodeValue;
+    }
+
+    noKeyGiven(inputLength) {
+        // console.log("noKeyGiven");
+
+        for (let i = 0; i &lt; inputLength; i++) {
+            this.keyValue += String.fromCharCode(
+                Math.trunc(Math.random() * 26) + 97
+            );
+        }
+    }
+
+    loopGivenKey(inputLength) {
+        // console.log("loopGivenKey");
+
+        const loopNumber = Math.trunc(inputLength / this.keyValue.length);
+        for (let i = 0; i &lt; loopNumber; i++) {
+            this.keyValue += this.keyValue;
+        }
+    }
+
+    get key() {
+        return this.keyValue;
+    }
+}</code></pre>
+        <form id="form">
+            <textarea id="input-text" cols="80" rows="18"></textarea>
+            <br />
+            <input
+                type="submit"
+                id="btn"
+                style="display: block; margin: 40px auto 0"
+            />
+        </form>
+        <textarea id="output" cols="25" rows="8" disabled></textarea>
+        <script src="../Assets/script.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
