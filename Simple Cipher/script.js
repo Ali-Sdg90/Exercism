@@ -102,35 +102,35 @@ const input = document.getElementById("input-text");
 const output = document.getElementById("output");
 const submitBtn = document.getElementById("btn");
 
-let ans = [];
+let test = [];
 
 input.value = `
     const cipher1 = new Cipher();
-    ans[0] = cipher1.encode("aaaaaaaaaa") === cipher1.key.substring(0, 10);
-    ans[1] = cipher1.decode(cipher1.key.substring(0, 10)) === "aaaaaaaaaa";
+    test[0] = cipher1.encode("aaaaaaaaaa") === cipher1.key.substring(0, 10);
+    test[1] = cipher1.decode(cipher1.key.substring(0, 10)) === "aaaaaaaaaa";
     const plaintext = "abcdefghij";
-    ans[2] = cipher1.decode(cipher1.encode(plaintext)) === plaintext;
+    test[2] = cipher1.decode(cipher1.encode(plaintext)) === plaintext;
 
     const key = "abcdefghij";
     const cipher2 = new Cipher(key);
-    ans[3] = cipher2.encode("aaaaaaaaaa") === "abcdefghij";
-    ans[4] = cipher2.decode(cipher2.encode("abcdefghij")) === "abcdefghij";
-    ans[5] =
+    test[3] = cipher2.encode("aaaaaaaaaa") === "abcdefghij";
+    test[4] = cipher2.decode(cipher2.encode("abcdefghij")) === "abcdefghij";
+    test[5] =
         new Cipher("iamapandabear").encode("iamapandabear") === "qayaeaagaciai";
-    ans[6] = cipher2.encode("zzzzzzzzzz") === "zabcdefghi";
-    ans[7] = cipher2.decode("zabcdefghi") === "zzzzzzzzzz";
-    ans[8] = new Cipher("abc").encode("iamapandabear") === "iboaqcnecbfcr";
-    ans[9] = new Cipher("abc").decode("iboaqcnecbfcr") === "iamapandabear";
+    test[6] = cipher2.encode("zzzzzzzzzz") === "zabcdefghi";
+    test[7] = cipher2.decode("zabcdefghi") === "zzzzzzzzzz";
+    test[8] = new Cipher("abc").encode("iamapandabear") === "iboaqcnecbfcr";
+    test[9] = new Cipher("abc").decode("iboaqcnecbfcr") === "iamapandabear";
 `;
 
 eval(input.value);
 
-for (let i = 0; i < ans.length; i++) {
-    output.value += `ans[${i}] = ${ans[i]}\n`;
+for (let i = 0; i < test.length; i++) {
+    output.value += `test[${i}] = ${test[i]}\n`;
 }
 
 submitBtn.addEventListener("click", () => {
-    ans = [];
+    test = [];
 
     try {
         eval(input.value);
@@ -140,7 +140,7 @@ submitBtn.addEventListener("click", () => {
         console.error(error);
     }
 
-    for (let i = 0; i < ans.length; i++) {
-        output.value += `ans[${i}] = ${ans[i]}\n`;
+    for (let i = 0; i < test.length; i++) {
+        output.value += `test[${i}] = ${test[i]}\n`;
     }
 });
