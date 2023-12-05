@@ -1,34 +1,55 @@
-class GradeSchool {
+interface GradeSchoolType {
+    sorter(): void;
+    roster(): StudentsType;
+    add(name: string, gradeNumber: number): void;
+    grade(gradeNumber: number): string[];
+}
+
+interface StudentsType {
+    [key: number]: string[];
+}
+
+class GradeSchool implements GradeSchoolType {
+    students: StudentsType;
+
     constructor() {
         this.students = {};
     }
 
     sorter() {
-        const keys = Object.keys(this.students);
-        keys.sort((a, b) => a - b);
+        const keys: string[] = Object.keys(this.students);
 
-        const copyOfStudents = this.students;
+        keys.sort(
+            (a, b): number =>
+                (typeof a === "number" ? a : Number(a)) -
+                (typeof b === "number" ? b : Number(b))
+        );
+
+        const copyOfStudents: StudentsType = this.students;
         this.students = {};
 
         for (let i = 0; i < keys.length; i++) {
-            this.students[keys[i]] = copyOfStudents[keys[i]];
-            this.students[keys[i]].sort();
+            this.students[+keys[i]] = copyOfStudents[+keys[i]];
+            this.students[+keys[i]].sort();
         }
     }
 
     roster() {
-        const copyOfStudents = {};
+        const copyOfStudents: StudentsType = {};
         for (let key in this.students) {
             copyOfStudents[key] = [...this.students[key]];
         }
         return copyOfStudents;
     }
 
-    add(name, gradeNumber) {
+    add(name: string, gradeNumber: number) {
         for (let key in this.students) {
-            for (let value = 0; value < this.students[key].length; value++) {
+            for (
+                let value: number = 0;
+                value < this.students[key].length;
+                value++
+            ) {
                 if (this.students[key][value] === name) {
-                    // console.log(this.students[key][value] + " got deleted!");
                     this.students[key].splice(value, 1);
                     return;
                 }
@@ -43,18 +64,19 @@ class GradeSchool {
         this.sorter();
     }
 
-    grade(gradeNumber) {
+    grade(gradeNumber: number) {
         if (!this.students[gradeNumber]) {
             return [];
         }
 
-        // Create copy of array and can not add "Oops!"!!!!
         return [...this.students[gradeNumber]];
     }
 }
 
-let expectedDb = "";
-let school = {};
+let expectedDb: {
+    [key: number]: string[];
+};
+let school;
 
 // console.log(JSON.stringify(school.grade(5)));
 // console.log(JSON.stringify(school.roster()));
@@ -94,10 +116,9 @@ school.add("Franklin", 5);
 school.add("Bradley", 5);
 school.add("Jeff", 1);
 
-expectedDb = ["Bradley", "Franklin"];
 console.log(
     "3.",
-    JSON.stringify(school.grade(5)) === JSON.stringify(expectedDb)
+    JSON.stringify(school.grade(5)) === JSON.stringify(["Bradley", "Franklin"])
 );
 
 // -----------------------------------
@@ -173,8 +194,12 @@ school.add("Christopher", 4);
 school.add("Kyle", 2);
 `;
 
-const input = document.getElementById("input-text");
-const output = document.getElementById("output");
+const input: HTMLInputElement | null = document.getElementById(
+    "input-text"
+) as HTMLInputElement;
+const output: HTMLInputElement | null = document.getElementById(
+    "output"
+) as HTMLInputElement;
 
 input.value = inputCodes;
 
@@ -183,10 +208,13 @@ eval(inputCodes);
 console.log(JSON.stringify(school.roster(), null, 2));
 output.value = JSON.stringify(school.roster(), null, 2);
 
-document.getElementById("form").addEventListener("submit", () => {
-    school = new GradeSchool();
-    eval(input.value);
+(document.getElementById("form") as HTMLElement).addEventListener(
+    "submit",
+    () => {
+        school = new GradeSchool();
+        eval(input.value);
 
-    console.log(JSON.stringify(school.roster(), null, 2));
-    output.value = JSON.stringify(school.roster(), null, 2);
-});
+        console.log(JSON.stringify(school.roster(), null, 2));
+        output.value = JSON.stringify(school.roster(), null, 2);
+    }
+);
