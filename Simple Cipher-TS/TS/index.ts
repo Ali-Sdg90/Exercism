@@ -4,7 +4,7 @@ interface CipherInterface {
     decodeValue: string;
 }
 
-class Cipher implements CipherInterface {
+export class SimpleCipher implements CipherInterface {
     keyValue: string;
     encodeValue: string;
     decodeValue: string;
@@ -87,70 +87,70 @@ class Cipher implements CipherInterface {
 
 // Tests:
 
-const cipher3 = new Cipher();
-console.log(cipher3.encode("aaaaaaaaaa") === cipher3.key.substring(0, 10));
-console.log(cipher3.decode(cipher3.key.substring(0, 10)) === "aaaaaaaaaa");
-const plaintext2 = "abcdefghij";
-console.log(cipher3.decode(cipher3.encode(plaintext2)) === plaintext2);
+// const cipher3 = new Cipher();
+// console.log(cipher3.encode("aaaaaaaaaa") === cipher3.key.substring(0, 10));
+// console.log(cipher3.decode(cipher3.key.substring(0, 10)) === "aaaaaaaaaa");
+// const plaintext2 = "abcdefghij";
+// console.log(cipher3.decode(cipher3.encode(plaintext2)) === plaintext2);
 
-const key2 = "abcdefghij";
-const cipher4 = new Cipher(key2);
-console.log(cipher4.encode("aaaaaaaaaa") === "abcdefghij");
-console.log(cipher4.decode("abcdefghij") === "aaaaaaaaaa");
-console.log(cipher4.decode(cipher4.encode("abcdefghij")) === "abcdefghij");
-console.log(
-    new Cipher("iamapandabear").encode("iamapandabear") === "qayaeaagaciai"
-);
-console.log(cipher4.encode("zzzzzzzzzz") === "zabcdefghi");
-console.log(cipher4.decode("zabcdefghi") === "zzzzzzzzzz");
-console.log(new Cipher("abc").encode("iamapandabear") === "iboaqcnecbfcr");
-console.log(new Cipher("abc").decode("iboaqcnecbfcr") === "iamapandabear");
+// const key2 = "abcdefghij";
+// const cipher4 = new Cipher(key2);
+// console.log(cipher4.encode("aaaaaaaaaa") === "abcdefghij");
+// console.log(cipher4.decode("abcdefghij") === "aaaaaaaaaa");
+// console.log(cipher4.decode(cipher4.encode("abcdefghij")) === "abcdefghij");
+// console.log(
+//     new Cipher("iamapandabear").encode("iamapandabear") === "qayaeaagaciai"
+// );
+// console.log(cipher4.encode("zzzzzzzzzz") === "zabcdefghi");
+// console.log(cipher4.decode("zabcdefghi") === "zzzzzzzzzz");
+// console.log(new Cipher("abc").encode("iamapandabear") === "iboaqcnecbfcr");
+// console.log(new Cipher("abc").decode("iboaqcnecbfcr") === "iamapandabear");
 
-// Showcase:
+// // Showcase:
 
-const input = document.getElementById("input-text") as HTMLInputElement;
-const output = document.getElementById("output") as HTMLInputElement;
-const submitBtn = document.getElementById("btn") as HTMLElement;
+// const input = document.getElementById("input-text") as HTMLInputElement;
+// const output = document.getElementById("output") as HTMLInputElement;
+// const submitBtn = document.getElementById("btn") as HTMLElement;
 
-let test: string[] = [];
+// let test: string[] = [];
 
-input.value = `
-    const cipher1 = new Cipher();
-    test[0] = cipher1.encode("aaaaaaaaaa") === cipher1.key.substring(0, 10);
-    test[1] = cipher1.decode(cipher1.key.substring(0, 10)) === "aaaaaaaaaa";
-    const plaintext = "abcdefghij";
-    test[2] = cipher1.decode(cipher1.encode(plaintext)) === plaintext;
+// input.value = `
+//     const cipher1 = new Cipher();
+//     test[0] = cipher1.encode("aaaaaaaaaa") === cipher1.key.substring(0, 10);
+//     test[1] = cipher1.decode(cipher1.key.substring(0, 10)) === "aaaaaaaaaa";
+//     const plaintext = "abcdefghij";
+//     test[2] = cipher1.decode(cipher1.encode(plaintext)) === plaintext;
 
-    const key = "abcdefghij";
-    const cipher2 = new Cipher(key);
-    test[3] = cipher2.encode("aaaaaaaaaa") === "abcdefghij";
-    test[4] = cipher2.decode(cipher2.encode("abcdefghij")) === "abcdefghij";
-    test[5] =
-        new Cipher("iamapandabear").encode("iamapandabear") === "qayaeaagaciai";
-    test[6] = cipher2.encode("zzzzzzzzzz") === "zabcdefghi";
-    test[7] = cipher2.decode("zabcdefghi") === "zzzzzzzzzz";
-    test[8] = new Cipher("abc").encode("iamapandabear") === "iboaqcnecbfcr";
-    test[9] = new Cipher("abc").decode("iboaqcnecbfcr") === "iamapandabear";
-`;
+//     const key = "abcdefghij";
+//     const cipher2 = new Cipher(key);
+//     test[3] = cipher2.encode("aaaaaaaaaa") === "abcdefghij";
+//     test[4] = cipher2.decode(cipher2.encode("abcdefghij")) === "abcdefghij";
+//     test[5] =
+//         new Cipher("iamapandabear").encode("iamapandabear") === "qayaeaagaciai";
+//     test[6] = cipher2.encode("zzzzzzzzzz") === "zabcdefghi";
+//     test[7] = cipher2.decode("zabcdefghi") === "zzzzzzzzzz";
+//     test[8] = new Cipher("abc").encode("iamapandabear") === "iboaqcnecbfcr";
+//     test[9] = new Cipher("abc").decode("iboaqcnecbfcr") === "iamapandabear";
+// `;
 
-eval(input.value);
+// eval(input.value);
 
-for (let i = 0; i < test.length; i++) {
-    output.value += `test[${i}] = ${test[i]}\n`;
-}
+// for (let i = 0; i < test.length; i++) {
+//     output.value += `test[${i}] = ${test[i]}\n`;
+// }
 
-submitBtn.addEventListener("click", () => {
-    test = [];
+// submitBtn.addEventListener("click", () => {
+//     test = [];
 
-    try {
-        eval(input.value);
-        output.value = "";
-    } catch (error: any) {
-        output.value = error;
-        console.error(error);
-    }
+//     try {
+//         eval(input.value);
+//         output.value = "";
+//     } catch (error: any) {
+//         output.value = error;
+//         console.error(error);
+//     }
 
-    for (let i = 0; i < test.length; i++) {
-        output.value += `test[${i}] = ${test[i]}\n`;
-    }
-});
+//     for (let i = 0; i < test.length; i++) {
+//         output.value += `test[${i}] = ${test[i]}\n`;
+//     }
+// });
