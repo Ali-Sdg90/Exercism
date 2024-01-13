@@ -16,18 +16,94 @@
                 >Simple Cipher - TS</a
             >
         </h1>
-        <pre><code></code></pre>
-        <form id="form">
-            <textarea id="input-text" cols="80" rows="18"></textarea>
-            <br />
-            <input
-                type="submit"
-                id="btn"
-                style="display: block; margin: 40px auto 0"
-            />
-        </form>
-        <textarea id="output" cols="25" rows="8" disabled></textarea>
-        <script src="../Assets/script.js"></script>
-        <script src="./JS/index.js"></script>
+        <pre><code>interface CipherInterface {
+    encodeValue: string;
+    decodeValue: string;
+}
+
+export class SimpleCipher implements CipherInterface {
+    keyValue: string;
+    encodeValue: string;
+    decodeValue: string;
+
+    constructor(key?: string) {
+        this.keyValue = key || this.createRandomKey();
+        this.encodeValue = "";
+        this.decodeValue = "";
+    }
+
+    encode(input: string) {
+        if (this.keyValue.length &lt; input.length) {
+            this.loopGivenKey(input.length);
+        }
+
+        this.encodeValue = "";
+        for (let i = 0; i &lt; input.length; i++) {
+            let charCode =
+                input.charAt(i).charCodeAt(0) +
+                (this.keyValue.charAt(i).charCodeAt(0) - 97);
+
+            if (charCode > 122) {
+                charCode -= 26;
+            }
+
+            this.encodeValue += String.fromCharCode(charCode);
+        }
+
+        return this.encodeValue;
+    }
+
+    decode(input: string) {
+        if (this.keyValue.length &lt; input.length) {
+            this.loopGivenKey(input.length);
+        }
+
+        this.decodeValue = "";
+        for (let i = 0; i &lt; input.length; i++) {
+            let charCode =
+                input.charAt(i).charCodeAt(0) -
+                (this.keyValue.charAt(i).charCodeAt(0) - 97);
+
+            if (charCode &lt; 97) {
+                charCode += 26;
+            }
+
+            this.decodeValue += String.fromCharCode(charCode);
+        }
+
+        return this.decodeValue;
+    }
+
+    createRandomKey(): string {
+        let key = "";
+        for (let i = 0; i &lt; 100; i++) {
+            key += this.randomLetter();
+        }
+        return key;
+    }
+
+    randomLetter(): string {
+        const i = Math.floor(Math.random() * 26);
+        return String.fromCharCode(97 + i);
+    }
+
+    loopGivenKey(inputLength: number) {
+        while (this.keyValue.length &lt; inputLength) {
+            this.keyValue += this.keyValue;
+        }
+        this.keyValue = this.keyValue.substring(0, inputLength);
+    }
+
+    get key() {
+        return this.keyValue;
+    }
+}
+        </code></pre>
+        <br />
+        <a href="./coverage/lcov-report/index.html">
+            <button id="btn">Coverage file</button></a
+        >
+        <br />
+        <br />
     </body>
 </html>

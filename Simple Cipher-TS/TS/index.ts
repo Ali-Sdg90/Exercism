@@ -15,7 +15,9 @@ export class SimpleCipher implements CipherInterface {
     }
 
     encode(input: string) {
-        this.checkInput(input);
+        if (this.keyValue.length < input.length) {
+            this.loopGivenKey(input.length);
+        }
 
         this.encodeValue = "";
         for (let i = 0; i < input.length; i++) {
@@ -34,7 +36,9 @@ export class SimpleCipher implements CipherInterface {
     }
 
     decode(input: string) {
-        this.checkInput(input);
+        if (this.keyValue.length < input.length) {
+            this.loopGivenKey(input.length);
+        }
 
         this.decodeValue = "";
         for (let i = 0; i < input.length; i++) {
@@ -52,14 +56,6 @@ export class SimpleCipher implements CipherInterface {
         return this.decodeValue;
     }
 
-    checkInput(input: string) {
-        if (!this.keyValue) {
-            this.noKeyGiven(input.length);
-        } else if (this.keyValue.length < input.length) {
-            this.loopGivenKey(input.length);
-        }
-    }
-
     createRandomKey(): string {
         let key = "";
         for (let i = 0; i < 100; i++) {
@@ -71,16 +67,6 @@ export class SimpleCipher implements CipherInterface {
     randomLetter(): string {
         const i = Math.floor(Math.random() * 26);
         return String.fromCharCode(97 + i);
-    }
-
-    noKeyGiven(inputLength: number) {
-        const minLength = Math.max(inputLength, 100);
-
-        while (this.keyValue.length < minLength) {
-            this.keyValue += String.fromCharCode(
-                Math.trunc(Math.random() * 26) + 97
-            );
-        }
     }
 
     loopGivenKey(inputLength: number) {
